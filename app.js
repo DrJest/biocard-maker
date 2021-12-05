@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const moment = require('moment');
 const users = require('./db').users;
 const frameData = require('./frames.json');
+const path = require('path');
 
 dotenv.config();
 
@@ -62,7 +63,7 @@ bot.on('message', async (msg) => {
   }
   const finalCanvas = createCanvas(width, height);
   const finalCtx = finalCanvas.getContext('2d')
-  const frame = await loadImage(`./frames/${u.template}.png`)
+  const frame = await loadImage(path.join(__dirname, 'frames', `${u.template}.png`));
   finalCtx.drawImage(picture, x, y, w, h)
   finalCtx.drawImage(frame, 0, 0, width, height)
   finalCtx.textBaseline = 'top';
