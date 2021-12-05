@@ -1,5 +1,11 @@
 FROM node:16
 
-RUN git clone https://github.com/DrJest/biocard-maker.git && cd biocard-maker && npm install
+WORKDIR /usr/src/app
 
-CMD [ "node", "biocard-maker/app.js" ]
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+CMD [ "node", "app.js" ]
