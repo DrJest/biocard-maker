@@ -33,6 +33,9 @@ const printTemplate = t => {
 
 bot.on('message', async (msg) => {
   if (!users[msg.chat.id]) users[msg.chat.id] = {};
+  if (msg.document) {
+    return bot.sendMessage(msg.chat.id, 'Send the picture as photo, not as file!').catch(console.log)
+  }
   if (!msg.photo) {
     return;
   }
@@ -45,15 +48,22 @@ bot.on('message', async (msg) => {
     return bot.sendMessage(msg.chat.id, 'You have to tell me the location first. Type /location <location> to choose!').catch(console.log)
   }
   bot.sendChatAction(msg.chat.id, 'upload_photo').catch(console.error)
-  const pictureCanvas = createCanvas(drawArea[2], drawArea[3]);
-  const pictureCtx = pictureCanvas.getContext('2d')
   const { file_path } = await bot.getFile(msg.photo[msg.photo.length - 1].file_id)
-  const picture = await loadImage(`https://api.telegram.org/file/bot${process.env.TELEGRAM_TOKEN}/${file_path}`)
-  pictureCtx.drawImage(picture, 0, 0, drawArea[2], drawArea[3])
+  const picture = await loadImage(`https://api.telegram.org/file/bot${process.env.TELEGRAM_TOKEN}/${file_path}`);
+  let pw = picture.width, ph = picture.height;
+  let x = drawArea[0], y = drawArea[1], w = drawArea[2], h = drawArea[2] * ph / pw;
+  if (h < drawArea[3]) {
+    h = drawArea[3];
+    w = h * pw / ph;
+    x = x - ((w - drawArea[2]) / 2);
+  }
+  if (h > drawArea[3]) {
+    y = y - ((h - drawArea[3]) / 2);
+  }
   const finalCanvas = createCanvas(width, height);
   const finalCtx = finalCanvas.getContext('2d')
   const frame = await loadImage(`./frames/${u.template}.png`)
-  finalCtx.drawImage(pictureCanvas, drawArea[0], drawArea[1], drawArea[2], drawArea[3])
+  finalCtx.drawImage(picture, x, y, w, h)
   finalCtx.drawImage(frame, 0, 0, width, height)
   finalCtx.textBaseline = 'top';
   finalCtx.fillStyle = '#FFF';
@@ -131,5 +141,5 @@ bot.onText(/\/date(.*)/, (msg, match) => {
     return bot.sendMessage(msg.chat.id, 'Date reset to current date.');
   }
   users[msg.chat.id].date = t;
-  return bot.sendMessage(msg.chat.id, 'Great! Now send me the picture you want to make the badge with. Square ones are  highly recommended, as rectangular ones will get squished.').catch(console.log)
+  return bot.sendMessage(msg.chat.id, 'Great! Now send me the picture you want to make the badge with. Use a picture with recommended proportions, otherwise it will get squished.').catch(console.log)
 });

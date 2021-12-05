@@ -3,6 +3,83 @@
     "width": 630,
     "height": 870,
     "drawArea": [
+      0,
+      0,
+      630,
+      870
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
+  },
+  "enl2": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      0,
+      0,
+      630,
+      870
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
+  },
+  "enl3": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      0,
+      0,
+      630,
+      870
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [
+      32,
+      785,
+      570,
+      64
+    ],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
+  },
+  "enl4": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
       32,
       260,
       570,
@@ -15,9 +92,9 @@
       48
     ],
     "nickArea": [
-      175,
+      170,
       120,
-      285,
+      270,
       64
     ],
     "dateArea": [
@@ -26,7 +103,113 @@
       130,
       32
     ],
-    "credits": "@DrJest"
+    "credits": "@FerdinandoLM"
+  },
+  "res1": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      0,
+      0,
+      630,
+      870
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
+  },
+  "res2": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      0,
+      0,
+      630,
+      870
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
+  },
+  "res3": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      0,
+      0,
+      630,
+      870
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [
+      32,
+      785,
+      570,
+      64
+    ],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
+  },
+  "res4": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      32,
+      260,
+      570,
+      350
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [
+      170,
+      120,
+      270,
+      64
+    ],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
   },
   "ifs1": {
     "width": 630,
@@ -55,7 +238,7 @@
       100,
       32
     ],
-    "credits": "@DrJest"
+    "credits": "@FerdinandoLM"
   },
   "bio1": {
     "width": 630,
@@ -75,5 +258,92 @@
     ],
     "dateArea": [],
     "credits": "@DrJest"
+  },
+  "xf1": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      0,
+      0,
+      630,
+      870
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [
+      32,
+      785,
+      570,
+      64
+    ],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
+  },
+  "xf2": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      0,
+      0,
+      630,
+      870
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [
+      32,
+      785,
+      570,
+      64
+    ],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
+  },
+  "xf3": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      32,
+      260,
+      570,
+      350
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [
+      32,
+      785,
+      570,
+      64
+    ],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@FerdinandoLM"
   }
 }
