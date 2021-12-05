@@ -12,7 +12,18 @@ if (!process.env.TELEGRAM_TOKEN) {
   process.exit(1)
 }
 
-const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { polling: true })
+let bot;
+if (process.env.WEBHOOK_URL) {
+  bot = new TelegramBot(process.env.TELEGRAM_TOKEN, {
+    webHook: {
+      port: process.env.WEBHOOK_PORT || 3000
+    }
+  });
+  bot.setWebHook(process.env.WEBHOOK_URL);
+}
+else {
+  bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { polling: true });
+}
 
 const printTemplate = t => {
   let md = frameData[t];
