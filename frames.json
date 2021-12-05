@@ -1,0 +1,79 @@
+{
+  "enl1": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      32,
+      260,
+      570,
+      350
+    ],
+    "cityArea": [
+      32,
+      675,
+      330,
+      48
+    ],
+    "nickArea": [
+      175,
+      120,
+      285,
+      64
+    ],
+    "dateArea": [
+      250,
+      725,
+      130,
+      32
+    ],
+    "credits": "@DrJest"
+  },
+  "ifs1": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      0,
+      0,
+      630,
+      870
+    ],
+    "cityArea": [
+      40,
+      780,
+      400,
+      48
+    ],
+    "nickArea": [
+      40,
+      710,
+      400,
+      64
+    ],
+    "dateArea": [
+      460,
+      800,
+      100,
+      32
+    ],
+    "credits": "@DrJest"
+  },
+  "bio1": {
+    "width": 630,
+    "height": 870,
+    "drawArea": [
+      35,
+      40,
+      560,
+      800
+    ],
+    "cityArea": [],
+    "nickArea": [
+      40,
+      760,
+      400,
+      64
+    ],
+    "dateArea": [],
+    "credits": "@DrJest"
+  }
+}
