@@ -113,6 +113,12 @@ bot.onText(/^\/templates$/, (msg, match) => {
   return bot.sendMessage(msg.chat.id, `*Available templates:* \n  ${Object.keys(frameData).map(printTemplate).join('\n  ')}`, { parse_mode: 'markdown' }).catch(console.log);
 });
 
+bot.onText(/^\/template$/, (msg, match) => {
+  let curTemplate = users[msg.chat.id].template;
+  if (!curTemplate) return bot.sendMessage(msg.chat.id, 'No template selected. Use /template to see available templates.').catch(console.log);
+  return bot.sendMessage(msg.chat.id, `*Current template:* ${printTemplate(curTemplate)}`, { parse_mode: 'Markdown' }).catch(console.log);
+});
+
 bot.onText(/\/location(.*)/, (msg, match) => {
   let t = match[1].trim();
   if (!t) {
