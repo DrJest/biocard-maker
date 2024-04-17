@@ -345,5 +345,193 @@
       32
     ],
     "credits": "@FerdinandoLM"
+  },
+  "2024enl1": {
+    "width": 458,
+    "height": 640,
+    "drawArea": [
+      0,
+      110,
+      458,
+      530
+    ],
+    "cityArea": [],
+    "nickArea": [
+      440,
+      20,
+      200,
+      30
+    ],
+    "dateArea": [],
+    "font": {
+      "color": "#000",
+      "font": "bold 30px Arial",
+      "align": "right"
+    },
+    "credits": "@DrJest"
+  },
+  "2024res1": {
+    "width": 458,
+    "height": 640,
+    "drawArea": [
+      0,
+      110,
+      458,
+      530
+    ],
+    "cityArea": [],
+    "nickArea": [
+      440,
+      20,
+      200,
+      30
+    ],
+    "dateArea": [],
+    "font": {
+      "color": "#000",
+      "font": "bold 30px Arial",
+      "align": "right"
+    },
+    "credits": "@DrJest"
+  },
+  "2024enl2": {
+    "width": 458,
+    "height": 640,
+    "drawArea": [
+      0,
+      110,
+      458,
+      530
+    ],
+    "cityArea": [],
+    "nickArea": [
+      20,
+      20,
+      200,
+      30
+    ],
+    "dateArea": [],
+    "font": {
+      "color": "#000",
+      "font": "bold 30px Arial"
+    },
+    "credits": "@DrJest"
+  },
+  "2024res2": {
+    "width": 458,
+    "height": 640,
+    "drawArea": [
+      0,
+      110,
+      458,
+      530
+    ],
+    "cityArea": [],
+    "nickArea": [
+      20,
+      20,
+      200,
+      30
+    ],
+    "dateArea": [],
+    "font": {
+      "color": "#000",
+      "font": "bold 30px Arial"
+    },
+    "credits": "@DrJest"
+  },
+  "2024enl3": {
+    "width": 458,
+    "height": 640,
+    "drawArea": [
+      0,
+      0,
+      458,
+      530
+    ],
+    "cityArea": [],
+    "nickArea": [
+      440,
+      580,
+      200,
+      30
+    ],
+    "dateArea": [],
+    "font": {
+      "color": "#000",
+      "font": "bold 30px Arial",
+      "align": "right"
+    },
+    "credits": "@DrJest"
+  },
+  "2024res3": {
+    "width": 458,
+    "height": 640,
+    "drawArea": [
+      0,
+      0,
+      458,
+      530
+    ],
+    "cityArea": [],
+    "nickArea": [
+      440,
+      580,
+      200,
+      30
+    ],
+    "dateArea": [],
+    "font": {
+      "color": "#000",
+      "font": "bold 30px Arial",
+      "align": "right"
+    },
+    "credits": "@DrJest"
+  },
+  "2024enl4": {
+    "width": 458,
+    "height": 640,
+    "drawArea": [
+      0,
+      0,
+      458,
+      530
+    ],
+    "cityArea": [],
+    "nickArea": [
+      20,
+      580,
+      200,
+      30
+    ],
+    "dateArea": [],
+    "font": {
+      "color": "#000",
+      "font": "bold 30px Arial"
+    },
+    "credits": "@DrJest"
+  },
+  "2024res4": {
+    "width": 458,
+    "height": 640,
+    "drawArea": [
+      0,
+      0,
+      458,
+      530
+    ],
+    "cityArea": [],
+    "nickArea": [
+      20,
+      580,
+      200,
+      30
+    ],
+    "dateArea": [],
+    "font": {
+      "color": "#000",
+      "font": "bold 30px Arial"
+    },
+    "credits": "@DrJest"
   }
 }

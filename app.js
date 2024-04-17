@@ -29,13 +29,21 @@ else {
 const printTemplate = t => {
   let md = frameData[t];
   if (!md) return 'Invalid template.';
-  return `${t} - recommended size ${md.drawArea[2]}x${md.drawArea[3]}px - Credits: ${md.credits}`;
+  return `/${t} - recommended size ${md.drawArea[2]}x${md.drawArea[3]}px - Credits: ${md.credits}`;
 }
 
 bot.on('message', async (msg) => {
   if (!users[msg.chat.id]) users[msg.chat.id] = {};
   if (msg.document) {
     return bot.sendMessage(msg.chat.id, 'Send the picture as photo, not as file!').catch(console.log)
+  }
+  if (msg.entities && msg.entities[0].type === 'bot_command') {
+    let t = msg.text.split(' ')[0].replace('/', '');
+    if (t in frameData) {
+      users[msg.chat.id].template = t;
+      let { drawArea } = frameData[t];
+      return bot.sendMessage(msg.chat.id, `Great! Your template is now \`${t}\`. Recommended size for this template is *${drawArea[2]}x${drawArea[3]}px.*`, { parse_mode: 'Markdown' }).catch(console.log)
+    }
   }
   if (!msg.photo) {
     return;
@@ -44,7 +52,8 @@ bot.on('message', async (msg) => {
   if (!u.template || !frameData[u.template]) {
     return bot.sendMessage(msg.chat.id, 'You have to tell me the template first. Type /templates to see, /template <template> to choose!').catch(console.log)
   }
-  const { width, height, drawArea, cityArea, dateArea, nickArea } = frameData[u.template];
+  const { width, height, drawArea, cityArea, dateArea, nickArea, font } = frameData[u.template];
+  if (!font) font = {};
   if (cityArea && cityArea.length && !u.location) {
     return bot.sendMessage(msg.chat.id, 'You have to tell me the location first. Type /location <location> to choose!').catch(console.log)
   }
@@ -66,8 +75,9 @@ bot.on('message', async (msg) => {
   const frame = await loadImage(path.join(__dirname, 'frames', `${u.template}.png`));
   finalCtx.drawImage(picture, x, y, w, h)
   finalCtx.drawImage(frame, 0, 0, width, height)
-  finalCtx.textBaseline = 'top';
-  finalCtx.fillStyle = '#FFF';
+  finalCtx.textBaseline = font.baseline || 'top';
+  finalCtx.fillStyle = font.color || '#FFF';
+  finalCtx.textAlign = font.align || 'left';
   if (cityArea && cityArea.length) {
     finalCtx.font = cityArea[3] + 'px Arial';
     finalCtx.fillText(u.location, cityArea[0], cityArea[1], cityArea[2]);
@@ -79,13 +89,13 @@ bot.on('message', async (msg) => {
   }
   if (nickArea && nickArea.length) {
     let nick = u.nick ? u.nick : msg.from.username;
-    finalCtx.font = nickArea[3] + 'px Arial';
+    finalCtx.font = font.font || `${nickArea[3]}px Arial`;
     finalCtx.fillText(nick, nickArea[0], nickArea[1], nickArea[2]);
   }
   bot.sendPhoto(msg.chat.id, finalCanvas.toBuffer('image/png', { quality: 1 }))
 });
 
-bot.onText(/^\/start$/, (msg) => {
+bot.onText(/^\/(start|help)$/, (msg) => {
   bot.sendMessage(msg.chat.id, `*Use this bot to generate a Biocard.*
   *Available commands:*
     /templates - See all Templates
@@ -99,20 +109,8 @@ bot.onText(/^\/start$/, (msg) => {
   `, { parse_mode: 'markdown' }).catch(console.log)
 });
 
-bot.onText(/\/template(.*)/, (msg, match) => {
-  let t = match[1].trim();
-  if (t === 's') return bot.sendMessage(msg.chat.id, `*Available templates:* \n  ${Object.keys(frameData).map(printTemplate).join('\n  ')}`, { parse_mode: 'markdown' }).catch(console.log);
-  if (!t) {
-    let curTemplate = users[msg.chat.id].template;
-    if (!curTemplate) return bot.sendMessage(msg.chat.id, 'No template selected. Use /template to see available templates.').catch(console.log);
-    return bot.sendMessage(msg.chat.id, `*Current template:* ${printTemplate(curTemplate)}`, { parse_mode: 'Markdown' }).catch(console.log);
-  }
-  if (frameData[t]) {
-    users[msg.chat.id].template = t;
-    let { drawArea } = frameData[t];
-    return bot.sendMessage(msg.chat.id, `Great! Recommended size for this template is *${drawArea[2]}x${drawArea[3]}px.*`, { parse_mode: 'Markdown' }).catch(console.log)
-  }
-  return bot.sendMessage(msg.chat.id, 'Invalid template.').catch(console.log)
+bot.onText(/^\/templates$/, (msg, match) => {
+  return bot.sendMessage(msg.chat.id, `*Available templates:* \n  ${Object.keys(frameData).map(printTemplate).join('\n  ')}`, { parse_mode: 'markdown' }).catch(console.log);
 });
 
 bot.onText(/\/location(.*)/, (msg, match) => {
