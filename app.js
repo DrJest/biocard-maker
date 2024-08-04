@@ -52,7 +52,7 @@ bot.on('message', async (msg) => {
   if (!u.template || !frameData[u.template]) {
     return bot.sendMessage(msg.chat.id, 'You have to tell me the template first. Type /templates to see, /template <template> to choose!').catch(console.log)
   }
-  const { width, height, drawArea, cityArea, dateArea, nickArea, font } = frameData[u.template];
+  let { width, height, drawArea, cityArea, dateArea, nickArea, font } = frameData[u.template];
   if (!font) font = {};
   if (cityArea && cityArea.length && !u.location) {
     return bot.sendMessage(msg.chat.id, 'You have to tell me the location first. Type /location <location> to choose!').catch(console.log)
